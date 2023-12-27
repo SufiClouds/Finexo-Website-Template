@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> Finexo </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="login.css">
+
+</head>
+
+
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Finexo
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item ">
+                <a class="nav-link" href="index.html">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html"> About</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="service.html">Services <span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="why.html">Why Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="team.html">Team</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+              </li>
+              <form class="form-inline">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- service section -->
+  <div class="wrapper">
+    <header>Login Form</header>
+    <form action="#">
+      <div class="field email">
+        <div class="input-area">
+          <input type="text" placeholder="Email Address">
+          <i class="icon fas fa-envelope"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Email can't be blank</div>
+      </div>
+      <div class="field password">
+        <div class="input-area">
+          <input type="password" placeholder="Password">
+          <i class="icon fas fa-lock"></i>
+          <i class="error error-icon fas fa-exclamation-circle"></i>
+        </div>
+        <div class="error error-txt">Password can't be blank</div>
+      </div>
+      <div class="pass-txt"><a href="#">Forgot password?</a></div>
+      <input type="submit" value="Login">
+    </form>
+    <div class="sign-txt">Not yet member? <a href="#">Signup now</a></div>
+  </div>
+
+ 
+
+  <!-- end service section -->
+
+  <!-- info section -->
+
+  
+
+  <!-- end info section -->
+
+  <!-- footer section -->
+  
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  <script>
+    const form = document.querySelector("form");
+eField = form.querySelector(".email"),
+eInput = eField.querySelector("input"),
+pField = form.querySelector(".password"),
+pInput = pField.querySelector("input");
+
+form.onsubmit = (e)=>{
+  e.preventDefault(); //preventing from form submitting
+  //if email and password is blank then add shake class in it else call specified function
+  (eInput.value == "") ? eField.classList.add("shake", "error") : checkEmail();
+  (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
+
+  setTimeout(()=>{ //remove shake class after 500ms
+    eField.classList.remove("shake");
+    pField.classList.remove("shake");
+  }, 500);
+
+  eInput.onkeyup = ()=>{checkEmail();} //calling checkEmail function on email input keyup
+  pInput.onkeyup = ()=>{checkPass();} //calling checkPassword function on pass input keyup
+
+  function checkEmail(){ //checkEmail function
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/; //pattern for validate email
+    if(!eInput.value.match(pattern)){ //if pattern not matched then add error and remove valid class
+      eField.classList.add("error");
+      eField.classList.remove("valid");
+      let errorTxt = eField.querySelector(".error-txt");
+      //if email value is not empty then show please enter valid email else show Email can't be blank
+      (eInput.value != "") ? errorTxt.innerText = "Enter a valid email address" : errorTxt.innerText = "Email can't be blank";
+    }else{ //if pattern matched then remove error and add valid class
+      eField.classList.remove("error");
+      eField.classList.add("valid");
+    }
+  }
+
+  function checkPass(){ //checkPass function
+    if(pInput.value == ""){ //if pass is empty then add error and remove valid class
+      pField.classList.add("error");
+      pField.classList.remove("valid");
+    }else{ //if pass is empty then remove error and add valid class
+      pField.classList.remove("error");
+      pField.classList.add("valid");
+    }
+  }
+
+  //if eField and pField doesn't contains error class that mean user filled details properly
+  if(!eField.classList.contains("error") && !pField.classList.contains("error")){
+    window.location.href = form.getAttribute("action"); //redirecting user to the specified url which is inside action attribute of form tag
+  }
+}
+   </script>
+
+</body>
+
+</html>
